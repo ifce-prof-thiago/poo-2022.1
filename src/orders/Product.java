@@ -1,34 +1,56 @@
 package orders;
 
+import java.time.Instant;
+
 public class Product {
 
     private String name;
     private double price;
     private int qty;
+    private final Instant createdAt;
 
-    public Product(String newName, double newPrice, int newQty) {
-        name = newName;
-        price = newPrice;
-        qty = newQty;
+
+    private Product(
+            String name,
+            double price,
+            int qty,
+            Instant createdAt) {
+
+        this.name = name;
+        this.price = price;
+        this.qty = qty;
+        this.createdAt = createdAt;
 
         this.validate();
     }
 
-    public void update(String newName, double mewPrice) {
+    public static Product create(String newName, double newPrice, int newQty) {
+
+        return new Product(newName, newPrice, newQty, Instant.now());
+
+    }
+
+    public Product update(String newName, double mewPrice) {
         name = newName;
         price = mewPrice;
 
         this.validate();
+
+        return this;
     }
 
-    public void incrementQty(int n) {
+    public Product incrementQty(int n) {
         qty += n;
         this.validate();
+
+        return this;
     }
 
-    public void decrementQty(int n) {
+    public Product decrementQty(int n) {
         qty -= n;
         this.validate();
+
+        return this;
     }
 
     private void validate() {
@@ -55,6 +77,10 @@ public class Product {
 
     public int qty() {
         return qty;
+    }
+
+    public Instant createdAt() {
+        return createdAt;
     }
 
 }
