@@ -9,7 +9,7 @@ public class Main {
         Product p = Product.create(
                         "Manteiga Qualis",
                         10.0,
-                        3
+                        7
                 ).update(
                         "Carne de Lata",
                         10.0
