@@ -1,3 +1,5 @@
+package orders;
+
 import orders.Product;
 
 import java.time.Instant;
