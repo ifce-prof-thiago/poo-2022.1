@@ -1,6 +1,6 @@
 package inheritance.bank;
 
-public class Account {
+public abstract class Account {
 
     private String number;
     private double balance;
@@ -10,6 +10,18 @@ public class Account {
         this.balance = 0;
     }
 
+    public void deposit(double value) {
+        this.balance += value;
+        this.validate();
+    }
+
+    public void withdraw(double value) {
+        this.balance -= value;
+        this.validate();
+    }
+
+    abstract void validate();
+
     public String number() {
         return this.number;
     }
@@ -17,5 +29,7 @@ public class Account {
     public double balance() {
         return this.balance;
     }
+
+    public abstract String operation();
 
 }
