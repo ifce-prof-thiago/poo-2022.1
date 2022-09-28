@@ -6,8 +6,8 @@ public class CurrentAccount extends Account {
 
     public CurrentAccount(String number, double overdraftLimit) {
         super(number);
-
         this.overdraftLimit = overdraftLimit;
+
     }
 
     @Override

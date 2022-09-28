@@ -30,9 +30,9 @@ public class Product {
 
     }
 
-    public Product update(String newName, double mewPrice) {
+    public Product update(String newName, double newPrice) {
         name = newName;
-        price = mewPrice;
+        price = newPrice;
 
         this.validate();
 
@@ -67,19 +67,19 @@ public class Product {
         }
     }
 
-    public String name() {
+    public String getName() {
         return name;
     }
 
-    public double price() {
+    public double getPrice() {
         return price;
     }
 
-    public int qty() {
+    public int getQty() {
         return qty;
     }
 
-    public Instant createdAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 

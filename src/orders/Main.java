@@ -1,28 +1,38 @@
 package orders;
 
-import orders.Product;
-
-import java.time.Instant;
-
 public class Main {
 
     public static void main(String[] args) {
 
-        Product p = Product.create(
-                        "Manteiga Qualis",
-                        10.0,
-                        7
-                ).update(
-                        "Carne de Lata",
-                        10.0
-                ).incrementQty(10)
-                .decrementQty(13);
+        final var mouse = Product.create(
+                "Mouse Ryz",
+                280.0, 1000
+        );
 
-        System.out.println(p.name());
-        System.out.println(p.price());
-        System.out.println(p.qty());
-        System.out.println(p.createdAt());
+        final var teclado = Product.create(
+                "Tec Gamer Top",
+                400,
+                20
+        );
 
+
+        final var order = Order.create();
+        order.addItem(Item.create(2, mouse));
+        order.addItem(Item.create(3, teclado));
+
+
+        System.out.println(order.getNumber());
+
+        order.getItems().forEach(p -> {
+            System.out.println(p.getName());
+            System.out.println(p.getPrice());
+            System.out.println(p.getQty());
+        });
+
+        System.out.println("-------------------");
+        System.out.println("Quantidade de items: " + order.getQtyItems());
     }
 
+
 }
+

@@ -4,15 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        var current = new CurrentAccount("0090816", 100);
+        var account = AccountFactory.create("0090816", 500);
 
-        current.deposit(600);
+        System.out.println(account.operation());
 
-        current.withdraw(500);
-
-        current.withdraw(150);
-
-        System.out.println(current.balance());
 
     }
 }

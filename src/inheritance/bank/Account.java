@@ -20,6 +20,11 @@ public abstract class Account {
         this.validate();
     }
 
+    public static void transfer(Account from, Account to, double value) {
+        from.withdraw(value);
+        to.deposit(value);
+    }
+
     abstract void validate();
 
     public String number() {
